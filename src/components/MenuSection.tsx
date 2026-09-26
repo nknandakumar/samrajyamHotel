@@ -73,11 +73,14 @@ export default function MenuSection() {
         )}
 
         {/* Food Items Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <div
+          key={activeCategory}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 animate-fade-in"
+        >
           {filteredItems.map((dish) => (
             <div
               key={dish.id}
-              className="group relative rounded-xl border border-gold/15 bg-gradient-to-b from-wood-800/50 to-charcoal/90 p-5 overflow-hidden transition-all duration-300 hover:border-gold/50 hover:shadow-xl hover:shadow-gold/5 hover:-translate-y-1 flex flex-col justify-between"
+              className="group relative rounded-xl border border-gold/15 bg-gradient-to-b from-wood-800/50 to-charcoal/90 p-5 overflow-hidden transition-[transform,border-color,box-shadow] duration-300 hover:border-gold/50 hover:shadow-xl hover:shadow-gold/10 hover:-translate-y-1 will-change-transform flex flex-col justify-between"
             >
               {/* Dish Image */}
               <div className="relative w-full h-52 rounded-lg overflow-hidden mb-4 bg-wood-900">

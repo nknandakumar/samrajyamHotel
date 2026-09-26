@@ -42,9 +42,9 @@ export default function Footer() {
 
           {/* Quick Navigation Links */}
           <div className="lg:col-span-3 space-y-3">
-            <h4 className="text-xs uppercase font-sans font-semibold tracking-widest text-gold-400">
+            <h3 className="text-xs uppercase font-sans font-semibold tracking-widest text-gold-400">
               Navigation
-            </h4>
+            </h3>
             <ul className="space-y-2">
               {NAV_ITEMS.map((item) => (
                 <li key={item.label}>
@@ -61,9 +61,9 @@ export default function Footer() {
 
           {/* Contact Details */}
           <div className="lg:col-span-4 space-y-3">
-            <h4 className="text-xs uppercase font-sans font-semibold tracking-widest text-gold-400">
+            <h3 className="text-xs uppercase font-sans font-semibold tracking-widest text-gold-400">
               Contact & Hours
-            </h4>
+            </h3>
             <div className="space-y-2.5 text-xs text-cream-300 font-sans">
               <p className="flex items-start gap-2">
                 <MapPin className="h-3.5 w-3.5 text-gold flex-shrink-0 mt-0.5" />
@@ -93,7 +93,7 @@ export default function Footer() {
             <button
               type="button"
               onClick={scrollToTop}
-              className="h-10 w-10 rounded-full border border-gold/30 bg-wood-800/80 hover:bg-gold hover:text-charcoal text-gold flex items-center justify-center transition-all duration-300 shadow-md"
+              className="h-10 w-10 rounded-full border border-gold/30 bg-wood-800/80 hover:bg-gold hover:text-charcoal text-gold flex items-center justify-center transition-[background-color,color] duration-300 shadow-md"
               aria-label="Back to top"
             >
               <ChevronUp className="h-4 w-4" />

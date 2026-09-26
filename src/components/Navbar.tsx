@@ -11,27 +11,56 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
+    let ticking = false;
+    let cachedHeroEnd: number | null = null;
+
+    const computeHeroEnd = () => {
       const hero = document.getElementById("hero");
       if (hero) {
-        // Transparent until the sticky cinematic scroll track completes
-        const heroScrollEnd =
+        cachedHeroEnd =
           hero.offsetTop + hero.offsetHeight - window.innerHeight - 60;
-        setIsPastHero(window.scrollY >= heroScrollEnd);
       } else {
-        setIsPastHero(window.scrollY > window.innerHeight * 4);
+        cachedHeroEnd = window.innerHeight * 2;
+      }
+    };
+
+    computeHeroEnd();
+
+    let resizeTimer: NodeJS.Timeout | null = null;
+    const handleResize = () => {
+      if (resizeTimer) clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(computeHeroEnd, 150);
+    };
+
+    window.addEventListener("resize", handleResize, { passive: true });
+
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const scrollY = window.scrollY || window.pageYOffset;
+          const threshold = cachedHeroEnd ?? window.innerHeight * 2;
+          const nextPastHero = scrollY >= threshold;
+          setIsPastHero((prev) => (prev !== nextPastHero ? nextPastHero : prev));
+          ticking = false;
+        });
+        ticking = true;
       }
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
+
+    return () => {
+      if (resizeTimer) clearTimeout(resizeTimer);
+      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ease-in-out ${
+        className={`fixed top-0 left-0 right-0 z-40 transition-[background-color,border-color,padding,box-shadow] duration-500 ease-in-out ${
           isPastHero
             ? "bg-charcoal/90 backdrop-blur-md border-b border-gold/20 py-3.5 shadow-2xl"
             : "bg-transparent border-transparent py-5"

@@ -5,45 +5,62 @@ import React, { useEffect, useState } from "react";
 interface PreloaderProps {
   onComplete?: () => void;
   videoLoaded?: boolean;
+  realProgress?: number;
 }
 
-export default function Preloader({ onComplete, videoLoaded = false }: PreloaderProps) {
+export default function Preloader({
+  onComplete,
+  videoLoaded = false,
+  realProgress,
+}: PreloaderProps) {
   const [progress, setProgress] = useState(0);
   const [isLoaded, setIsLoaded] = useState(false);
   const [shouldRender, setShouldRender] = useState(true);
 
   useEffect(() => {
-    // Smooth progress simulation with minimum duration for premium feel
+    // If real progress is reported, smoothly interpolate towards it
+    if (typeof realProgress === "number") {
+      setProgress((prev) => Math.max(prev, Math.min(100, Math.round(realProgress))));
+    }
+  }, [realProgress]);
+
+  useEffect(() => {
+    // Progress increment timer: gracefully scales, but caps at 95% until videoLoaded/sequenceReady is true
     const interval = setInterval(() => {
       setProgress((prev) => {
         if (prev >= 100) {
           clearInterval(interval);
           return 100;
         }
-        // Accelerate if video is already loaded or reaching end
+        // If not yet loaded, cap at 92% to avoid premature dismissal
+        const cap = videoLoaded ? 100 : 92;
+        if (prev >= cap) {
+          return prev;
+        }
         const increment = videoLoaded ? Math.random() * 20 + 10 : Math.random() * 8 + 4;
-        const next = Math.min(prev + increment, 100);
+        const next = Math.min(prev + increment, cap);
         return Math.floor(next);
       });
-    }, 60);
+    }, 50);
 
     return () => clearInterval(interval);
   }, [videoLoaded]);
 
   useEffect(() => {
-    if (progress >= 100) {
+    // Dismiss only when sequence is fully ready and progress is 100%
+    if (progress >= 100 && videoLoaded) {
       const timer = setTimeout(() => {
         setIsLoaded(true);
         if (onComplete) onComplete();
         const removeTimer = setTimeout(() => {
           setShouldRender(false);
-        }, 900);
+        }, 800);
         return () => clearTimeout(removeTimer);
-      }, 400);
+      }, 300);
 
       return () => clearTimeout(timer);
     }
-  }, [progress, onComplete]);
+  }, [progress, videoLoaded, onComplete]);
 
   if (!shouldRender) return null;
 

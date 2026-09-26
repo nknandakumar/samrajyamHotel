@@ -122,19 +122,22 @@ export default function Gallery() {
         </div>
 
         {/* Gallery Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div
+          key={activeFilter}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 animate-fade-in"
+        >
           {filteredImages.map((img) => (
             <div
               key={img.id}
               onClick={() => setActiveImage(img)}
-              className="group relative h-80 rounded-xl overflow-hidden border border-gold/20 cursor-pointer shadow-lg transition-all duration-500 hover:border-gold/60 hover:shadow-2xl hover:-translate-y-1"
+              className="group relative h-80 rounded-xl overflow-hidden border border-gold/20 cursor-pointer shadow-lg transition-[transform,border-color,box-shadow] duration-500 hover:border-gold/60 hover:shadow-2xl hover:-translate-y-1 will-change-transform"
             >
               <Image
                 src={img.src}
                 alt={img.title}
                 fill
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                className="object-cover group-hover:scale-105 transition-transform duration-700 brightness-90 group-hover:brightness-100"
+                className="object-cover group-hover:scale-105 transition-transform duration-700 brightness-90 group-hover:brightness-100 will-change-transform"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
 

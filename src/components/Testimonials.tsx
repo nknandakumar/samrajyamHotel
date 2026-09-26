@@ -73,7 +73,7 @@ export default function Testimonials() {
           {reviews.map((rev) => (
             <div
               key={rev.id}
-              className="relative rounded-xl border border-gold/20 bg-gradient-to-b from-wood-800/60 to-charcoal/95 p-7 flex flex-col justify-between shadow-xl transition-all duration-300 hover:border-gold/50 hover:-translate-y-1"
+              className="relative rounded-xl border border-gold/20 bg-gradient-to-b from-wood-800/60 to-charcoal/95 p-7 flex flex-col justify-between shadow-xl transition-[transform,border-color,box-shadow] duration-300 hover:border-gold/50 hover:-translate-y-1 will-change-transform"
             >
               <div>
                 {/* Rating Stars & Quote Icon */}
@@ -98,7 +98,7 @@ export default function Testimonials() {
                 </p>
                 <div className="flex items-center justify-between text-xs text-gold-400/80 mt-1 font-sans">
                   <span>{rev.occasion}</span>
-                  <span className="text-[10px] text-cream-400/60">{rev.location}</span>
+                  <span className="text-[10px] text-cream-300">{rev.location}</span>
                 </div>
               </div>
             </div>
