@@ -32,20 +32,20 @@ export function getFrameUrl(frameIndex: number): string {
  * Increase if the journey feels too fast; decrease if too slow.
  * ~100vh per ~10 frames is a comfortable pacing.
  */
-export const CINEMATIC_SCROLL_HEIGHT = "500vh";
+export const CINEMATIC_SCROLL_HEIGHT = "280vh";
 
 /**
  * Lerp factor for smooth frame interpolation (0 < factor <= 1).
- * Lower = smoother / more lag; Higher = snappier / less lag.
- * 0.12 gives buttery motion while still feeling scroll-connected.
+ * When Lenis smooth scroll is active, scroll is already eased, so an adaptive
+ * factor is used to track smoothly without rubber-banding lag.
  */
-export const LERP_FACTOR = 0.12;
+export const LERP_FACTOR = 0.25;
 
 /**
- * Cap the device pixel ratio to avoid unnecessarily huge canvas buffers
- * on high-DPI devices while still rendering sharply.
+ * Cap the device pixel ratio to 1.5 to prevent massive multi-megapixel buffers
+ * on high-DPI/Retina screens (1280x720 source frames resample cleanly at DPR 1.5).
  */
-export const MAX_DPR = 2;
+export const MAX_DPR = 1.5;
 
 /**
  * Enable debug overlay (FRAME / PROGRESS) during development.
@@ -54,7 +54,8 @@ export const MAX_DPR = 2;
 export const DEBUG_MODE = false;
 
 /**
- * Number of frames to prioritize loading before the cinematic section
- * is first shown to the visitor. The rest are loaded progressively.
+ * Preload all 50 frames upfront (total size is only ~1.89 MB).
+ * Preloading all frames before entry guarantees zero dropped frames and zero
+ * mid-scroll network/decode pauses.
  */
-export const PRIORITY_PRELOAD_COUNT = 10;
+export const PRIORITY_PRELOAD_COUNT = 50;

@@ -151,7 +151,7 @@ export default function Reservation() {
                       placeholder="e.g. Ramesh Sundaram"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full pl-10 pr-4 py-3 bg-wood-800/60 border border-gold/20 rounded-sm text-cream text-sm placeholder-cream-400/40 focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-all"
+                      className="w-full pl-10 pr-4 py-3 bg-wood-800/60 border border-gold/20 rounded-sm text-cream text-sm placeholder-cream-400/40 focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-[border-color,box-shadow]"
                     />
                   </div>
                 </div>
@@ -175,7 +175,7 @@ export default function Reservation() {
                       placeholder="+91 98765 43210"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full pl-10 pr-4 py-3 bg-wood-800/60 border border-gold/20 rounded-sm text-cream text-sm placeholder-cream-400/40 focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-all"
+                      className="w-full pl-10 pr-4 py-3 bg-wood-800/60 border border-gold/20 rounded-sm text-cream text-sm placeholder-cream-400/40 focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-[border-color,box-shadow]"
                     />
                   </div>
                 </div>
@@ -198,7 +198,7 @@ export default function Reservation() {
                       required
                       value={formData.date}
                       onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-                      className="w-full pl-10 pr-4 py-3 bg-wood-800/60 border border-gold/20 rounded-sm text-cream text-sm focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-all [color-scheme:dark]"
+                      className="w-full pl-10 pr-4 py-3 bg-wood-800/60 border border-gold/20 rounded-sm text-cream text-sm focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-[border-color,box-shadow] [color-scheme:dark]"
                     />
                   </div>
                 </div>
@@ -219,7 +219,7 @@ export default function Reservation() {
                       id="res-time"
                       value={formData.time}
                       onChange={(e) => setFormData({ ...formData, time: e.target.value })}
-                      className="w-full pl-10 pr-4 py-3 bg-wood-800/90 border border-gold/20 rounded-sm text-cream text-sm focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-all [color-scheme:dark]"
+                      className="w-full pl-10 pr-4 py-3 bg-wood-800/90 border border-gold/20 rounded-sm text-cream text-sm focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-[border-color,box-shadow] [color-scheme:dark]"
                     >
                       <option value="11:30">11:30 AM (Lunch)</option>
                       <option value="12:30">12:30 PM (Lunch)</option>
@@ -250,7 +250,7 @@ export default function Reservation() {
                       id="res-guests"
                       value={formData.guests}
                       onChange={(e) => setFormData({ ...formData, guests: e.target.value })}
-                      className="w-full pl-10 pr-4 py-3 bg-wood-800/90 border border-gold/20 rounded-sm text-cream text-sm focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-all [color-scheme:dark]"
+                      className="w-full pl-10 pr-4 py-3 bg-wood-800/90 border border-gold/20 rounded-sm text-cream text-sm focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-[border-color,box-shadow] [color-scheme:dark]"
                     >
                       <option value="1">1 Person</option>
                       <option value="2">2 People</option>
@@ -282,7 +282,7 @@ export default function Reservation() {
                       placeholder="e.g. Birthday anniversary, high chair needed, dietary preference..."
                       value={formData.notes}
                       onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-                      className="w-full pl-10 pr-4 py-3 bg-wood-800/60 border border-gold/20 rounded-sm text-cream text-sm placeholder-cream-400/40 focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-all resize-none"
+                      className="w-full pl-10 pr-4 py-3 bg-wood-800/60 border border-gold/20 rounded-sm text-cream text-sm placeholder-cream-400/40 focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-[border-color,box-shadow] resize-none"
                     />
                   </div>
                 </div>
@@ -293,7 +293,7 @@ export default function Reservation() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full sm:w-auto px-10 py-4 text-xs sm:text-sm font-sans font-semibold tracking-widest uppercase text-charcoal bg-gradient-to-r from-gold-400 via-gold to-gold-500 hover:from-gold-300 hover:to-gold-400 rounded-sm shadow-xl transition-all duration-300 disabled:opacity-60"
+                  className="w-full sm:w-auto px-10 py-4 text-xs sm:text-sm font-sans font-semibold tracking-widest uppercase text-charcoal bg-gradient-to-r from-gold-400 via-gold to-gold-500 hover:from-gold-300 hover:to-gold-400 rounded-sm shadow-xl transition-[opacity,transform] duration-300 disabled:opacity-60"
                 >
                   {isSubmitting ? "Reserving..." : "Reserve a Table"}
                 </button>

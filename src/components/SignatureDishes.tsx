@@ -40,7 +40,7 @@ export default function SignatureDishes() {
           {SIGNATURE_DISHES.map((dish, index) => (
             <div
               key={dish.id}
-              className="group relative rounded-xl border border-gold/20 bg-gradient-to-b from-wood-800/60 to-charcoal/90 p-6 overflow-hidden shadow-2xl transition-all duration-500 hover:border-gold/60 hover:-translate-y-1.5 flex flex-col justify-between"
+              className="group relative rounded-xl border border-gold/20 bg-gradient-to-b from-wood-800/60 to-charcoal/90 p-6 overflow-hidden shadow-2xl transition-[transform,border-color,box-shadow] duration-500 hover:border-gold/60 hover:-translate-y-1.5 will-change-transform flex flex-col justify-between"
             >
               {/* Image Container with Framing */}
               <div className="relative w-full h-64 rounded-lg overflow-hidden mb-6 bg-wood-950">
@@ -49,7 +49,7 @@ export default function SignatureDishes() {
                   alt={dish.name}
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  className="object-cover group-hover:scale-105 transition-transform duration-700 brightness-90 group-hover:brightness-100"
+                  className="object-cover group-hover:scale-105 transition-transform duration-700 brightness-90 group-hover:brightness-100 will-change-transform"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-transparent to-transparent opacity-60" />
 
@@ -83,7 +83,7 @@ export default function SignatureDishes() {
               {/* Bottom Subtle Accent Line */}
               <div className="mt-6 pt-4 border-t border-gold/15 flex items-center justify-between text-xs text-gold-400 font-sans">
                 <span className="tracking-widest uppercase text-[10px]">Authentic Recipe</span>
-                <span className="text-cream-400/60 font-serif italic">Fresh Daily</span>
+                <span className="text-cream-300 font-serif italic">Fresh Daily</span>
               </div>
             </div>
           ))}

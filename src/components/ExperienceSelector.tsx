@@ -33,7 +33,7 @@ export default function ExperienceSelector() {
         {/* Two Grand Visual Choice Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10">
           {/* Card 1: Dine With Us */}
-          <div className="group relative rounded-xl border border-gold/25 bg-gradient-to-b from-wood-800/80 to-wood-900/90 p-8 sm:p-12 overflow-hidden shadow-2xl transition-all duration-500 hover:border-gold/60 hover:shadow-gold/10 hover:-translate-y-1 flex flex-col justify-between min-h-[420px]">
+          <div className="group relative rounded-xl border border-gold/25 bg-gradient-to-b from-wood-800/80 to-wood-900/90 p-8 sm:p-12 overflow-hidden shadow-2xl transition-[transform,border-color,box-shadow] duration-500 hover:border-gold/60 hover:shadow-gold/10 hover:-translate-y-1 will-change-transform flex flex-col justify-between min-h-[420px]">
             {/* Background Image Texture */}
             <div
               className="absolute inset-0 opacity-20 group-hover:opacity-30 transition-opacity duration-700 bg-cover bg-center"
@@ -61,7 +61,7 @@ export default function ExperienceSelector() {
             <div className="relative z-10 mt-8 pt-6 border-t border-gold/15">
               <Link
                 href="#menu"
-                className="inline-flex items-center gap-3 px-6 py-3.5 text-xs sm:text-sm font-sans font-semibold tracking-widest uppercase text-charcoal bg-gold hover:bg-gold-300 rounded-sm shadow-lg transition-all duration-300 group-hover:gap-4"
+                className="inline-flex items-center gap-3 px-6 py-3.5 text-xs sm:text-sm font-sans font-semibold tracking-widest uppercase text-charcoal bg-gold hover:bg-gold-300 rounded-sm shadow-lg transition-[background-color,gap] duration-300 group-hover:gap-4"
               >
                 <span>Explore Restaurant Menu</span>
                 <ArrowRight className="h-4 w-4" />
@@ -70,7 +70,7 @@ export default function ExperienceSelector() {
           </div>
 
           {/* Card 2: Bring Samrajyam To You */}
-          <div className="group relative rounded-xl border border-gold/25 bg-gradient-to-b from-temple-800/80 to-temple-900/90 p-8 sm:p-12 overflow-hidden shadow-2xl transition-all duration-500 hover:border-gold/60 hover:shadow-gold/10 hover:-translate-y-1 flex flex-col justify-between min-h-[420px]">
+          <div className="group relative rounded-xl border border-gold/25 bg-gradient-to-b from-temple-800/80 to-temple-900/90 p-8 sm:p-12 overflow-hidden shadow-2xl transition-[transform,border-color,box-shadow] duration-500 hover:border-gold/60 hover:shadow-gold/10 hover:-translate-y-1 will-change-transform flex flex-col justify-between min-h-[420px]">
             {/* Background Image Texture */}
             <div
               className="absolute inset-0 opacity-20 group-hover:opacity-30 transition-opacity duration-700 bg-cover bg-center"
@@ -103,7 +103,7 @@ export default function ExperienceSelector() {
             <div className="relative z-10 mt-8 pt-6 border-t border-gold/15">
               <Link
                 href="#catering"
-                className="inline-flex items-center gap-3 px-6 py-3.5 text-xs sm:text-sm font-sans font-semibold tracking-widest uppercase text-cream-50 bg-wood-700/90 hover:bg-wood-600 border border-gold/40 rounded-sm shadow-lg transition-all duration-300 group-hover:gap-4"
+                className="inline-flex items-center gap-3 px-6 py-3.5 text-xs sm:text-sm font-sans font-semibold tracking-widest uppercase text-cream-50 bg-wood-700/90 hover:bg-wood-600 border border-gold/40 rounded-sm shadow-lg transition-[background-color,border-color,gap] duration-300 group-hover:gap-4"
               >
                 <span>Explore Catering</span>
                 <ArrowRight className="h-4 w-4 text-gold" />

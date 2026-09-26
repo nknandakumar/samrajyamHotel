@@ -62,7 +62,7 @@ export default function ExperienceSection() {
             return (
               <div
                 key={idx}
-                className="group relative rounded-2xl border border-gold/20 bg-gradient-to-b from-wood-800/70 to-charcoal/95 p-8 overflow-hidden shadow-2xl transition-all duration-500 hover:border-gold/60 hover:-translate-y-2 flex flex-col justify-between min-h-[400px]"
+                className="group relative rounded-2xl border border-gold/20 bg-gradient-to-b from-wood-800/70 to-charcoal/95 p-8 overflow-hidden shadow-2xl transition-[transform,border-color,box-shadow] duration-500 hover:border-gold/60 hover:-translate-y-2 will-change-transform flex flex-col justify-between min-h-[400px]"
               >
                 {/* Background Atmosphere Image */}
                 <div className="relative w-full h-48 rounded-xl overflow-hidden mb-6 bg-wood-950">
@@ -71,7 +71,7 @@ export default function ExperienceSection() {
                     alt={exp.title}
                     fill
                     sizes="(max-width: 768px) 100vw, 33vw"
-                    className="object-cover group-hover:scale-105 transition-transform duration-700 brightness-85 group-hover:brightness-100"
+                    className="object-cover group-hover:scale-105 transition-transform duration-700 brightness-85 group-hover:brightness-100 will-change-transform"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-transparent to-transparent opacity-60" />
 
@@ -95,7 +95,7 @@ export default function ExperienceSection() {
 
                 <div className="mt-6 pt-4 border-t border-gold/15 flex items-center justify-between text-xs text-gold-400">
                   <span className="uppercase tracking-widest text-[10px]">The Samrajyam Way</span>
-                  <span className="font-serif italic text-cream-400/60">Every Day</span>
+                  <span className="font-serif italic text-cream-300">Every Day</span>
                 </div>
               </div>
             );

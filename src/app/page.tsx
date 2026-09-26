@@ -21,6 +21,7 @@ import Footer from "@/components/Footer";
 
 export default function HomePage() {
   const [sequenceReady, setSequenceReady] = useState(false);
+  const [loadProgress, setLoadProgress] = useState(0);
 
   return (
     <main
@@ -28,13 +29,16 @@ export default function HomePage() {
       style={{ overflowX: "clip" }}
     >
       {/* 1. Preloader */}
-      <Preloader videoLoaded={sequenceReady} />
+      <Preloader videoLoaded={sequenceReady} realProgress={loadProgress} />
 
       {/* 2. Navigation */}
       <Navbar />
 
       {/* 3. Cinematic Hero & Scrollytelling Journey */}
-      <SamrajyamScroll onReady={() => setSequenceReady(true)} />
+      <SamrajyamScroll
+        onReady={() => setSequenceReady(true)}
+        onLoadProgress={(p) => setLoadProgress(p)}
+      />
 
       {/* 5. Experience Selector ("Dine With Us" vs "Bring Samrajyam To You") */}
       <ExperienceSelector />

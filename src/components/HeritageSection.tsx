@@ -79,7 +79,7 @@ export default function HeritageSection() {
             return (
               <div
                 key={item.id}
-                className="group relative rounded-xl border border-gold/20 bg-gradient-to-b from-wood-800/60 to-charcoal/95 p-6 overflow-hidden shadow-xl transition-all duration-500 hover:border-gold/60 hover:-translate-y-1.5 flex flex-col justify-between"
+                className="group relative rounded-xl border border-gold/20 bg-gradient-to-b from-wood-800/60 to-charcoal/95 p-6 overflow-hidden shadow-xl transition-[transform,border-color,box-shadow] duration-500 hover:border-gold/60 hover:-translate-y-1.5 will-change-transform flex flex-col justify-between"
               >
                 {/* Visual Image */}
                 <div className="relative w-full h-44 rounded-lg overflow-hidden mb-5 bg-wood-950">
@@ -88,7 +88,7 @@ export default function HeritageSection() {
                     alt={item.title}
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                    className="object-cover group-hover:scale-105 transition-transform duration-500 brightness-90"
+                    className="object-cover group-hover:scale-105 transition-transform duration-500 brightness-90 will-change-transform"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-transparent to-transparent opacity-60" />
 
@@ -114,7 +114,7 @@ export default function HeritageSection() {
 
                 <div className="mt-5 pt-3 border-t border-gold/15 flex items-center justify-between text-[11px] text-gold-400/80">
                   <span className="uppercase tracking-widest text-[10px]">Pure Essence</span>
-                  <span className="font-serif italic text-cream-400/60">Tamil Heritage</span>
+                  <span className="font-serif italic text-cream-300">Tamil Heritage</span>
                 </div>
               </div>
             );

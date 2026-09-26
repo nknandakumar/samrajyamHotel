@@ -76,7 +76,7 @@ export default function CelebrationsSection() {
             return (
               <div
                 key={item.id}
-                className="group relative rounded-xl border border-gold/20 bg-gradient-to-b from-wood-800/60 to-charcoal/95 p-6 overflow-hidden shadow-xl transition-all duration-500 hover:border-gold/60 hover:-translate-y-1.5 flex flex-col justify-between min-h-[360px]"
+                className="group relative rounded-xl border border-gold/20 bg-gradient-to-b from-wood-800/60 to-charcoal/95 p-6 overflow-hidden shadow-xl transition-[transform,border-color,box-shadow] duration-500 hover:border-gold/60 hover:-translate-y-1.5 will-change-transform flex flex-col justify-between min-h-[360px]"
               >
                 {/* Background Image */}
                 <div className="relative w-full h-44 rounded-lg overflow-hidden mb-5 bg-wood-950">
@@ -85,7 +85,7 @@ export default function CelebrationsSection() {
                     alt={item.title}
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                    className="object-cover group-hover:scale-105 transition-transform duration-500 brightness-90"
+                    className="object-cover group-hover:scale-105 transition-transform duration-500 brightness-90 will-change-transform"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-transparent to-transparent opacity-60" />
 
@@ -106,7 +106,7 @@ export default function CelebrationsSection() {
 
                 <div className="mt-6 pt-3 border-t border-gold/15 flex items-center justify-between text-xs text-gold-400">
                   <span className="tracking-widest uppercase text-[10px]">Tailored Dining</span>
-                  <span className="text-cream-400/60 font-serif italic">Dedicated Care</span>
+                  <span className="text-cream-300 font-serif italic">Dedicated Care</span>
                 </div>
               </div>
             );
@@ -117,7 +117,7 @@ export default function CelebrationsSection() {
         <div className="text-center">
           <Link
             href="#reservation"
-            className="inline-flex items-center gap-3 px-8 py-4 text-xs sm:text-sm font-sans font-semibold tracking-widest uppercase text-charcoal bg-gradient-to-r from-gold-400 via-gold to-gold-500 hover:from-gold-300 hover:to-gold-400 rounded-sm shadow-xl transition-all duration-300 hover:gap-4"
+            className="inline-flex items-center gap-3 px-8 py-4 text-xs sm:text-sm font-sans font-semibold tracking-widest uppercase text-charcoal bg-gradient-to-r from-gold-400 via-gold to-gold-500 hover:from-gold-300 hover:to-gold-400 rounded-sm shadow-xl transition-[gap,opacity,transform] duration-300 hover:gap-4"
           >
             <span>Plan Your Celebration</span>
             <ArrowRight className="h-4 w-4" />
